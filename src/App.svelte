@@ -1,30 +1,19 @@
 <script>
-	export let name;
-</script>
-
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
+	import { Router, Route, Link } from 'svelte-routing';
+	import Login from './routes/login.svelte';
+	import CreateUser from './routes/create-user.svelte';
+	import Dashboard from './routes/dashboard.svelte'; // Add your dashboard page later
+  </script>
+  
+  <Router>
+	<nav>
+	  <Link to="/">Home</Link>
+	  <Link to="/login">Login</Link>
+	  <Link to="/create-user">Create User</Link>
+	</nav>
+  
+	<Route path="/login" component={Login} />
+	<Route path="/create-user" component={CreateUser} />
+	<Route path="/dashboard" component={Dashboard} />
+  </Router>
+  
